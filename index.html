@@ -5,96 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rushikesh | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Swiper.js Stylesheet -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Swiper.js Script -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper-container', {
-      loop: true, // Enable infinite loop
-      autoplay: {
-        delay: 3000, // Auto change slide every 3 seconds
-      },
-      spaceBetween: 30, // Spacing between slides
-      slidesPerView: 1, // Show 1 slide at a time
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true, // Enable clickable pagination
-      },
-      effect: 'fade', // Fade transition between slides
-    });
-  </script>
   <style>
     html {
       scroll-behavior: smooth;
     }
-
     #hero {
       background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+        url('https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
       background-size: cover;
       background-position: center;
       color: white;
     }
-
     .hover-scale:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease-in-out;
     }
-
     .project-card:hover {
       transform: scale(1.03);
       transition: all 0.3s ease-in-out;
     }
-
     .project-card img {
       transition: transform 0.3s ease-in-out;
     }
-
     .project-card:hover img {
       transform: scale(1.1);
     }
   </style>
 </head>
-
 <body class="bg-gray-100 text-gray-800 font-sans">
-  <!-- Header -->
   <header class="backdrop-blur-md bg-white/60 shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-extrabold text-blue-700 tracking-wide">Rushikesh</h1>
-      <nav class="space-x-6 text-gray-700 font-medium">
-        <a href="#about" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">About</a>
-        <a href="#projects" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Projects</a>
-        <a href="#contact" class="hover:text-blue-600 border-b-2 border-transparent hover:border-blue-600 transition">Contact</a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-extrabold text-blue-700 tracking-wide">Rushikesh</h1>
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-gray-700 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <nav id="menu" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-gray-700 font-medium">
+        <a href="#about" class="hover:text-blue-600">About</a>
+        <a href="#projects" class="hover:text-blue-600">Projects</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
       </nav>
     </div>
   </header>
+  <script>
+    document.getElementById("menu-btn").addEventListener("click", () => {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("hidden");
+    });
+  </script>
 
-  <!-- Hero Section -->
-  <section class="relative bg-blue-100 text-center py-40" id="hero">
+  <section id="hero" class="relative text-center py-40 px-4 sm:px-6">
     <div class="absolute inset-0 bg-gradient-to-r from-blue-300 via-blue-500 to-blue-700 opacity-60"></div>
     <div class="relative z-10">
-      <h2 class="text-5xl font-extrabold text-white mb-6 animate__animated animate__fadeIn animate__delay-1s">Hey, I'm Rushikesh 👋</h2>
-      <p class="text-2xl text-white opacity-80 mb-8 animate__animated animate__fadeIn animate__delay-2s">Frontend Developer | Mobile App Developer | Tech Enthusiast</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-6 animate__animated animate__fadeIn animate__delay-1s">Hey, I'm Rushikesh 👋</h2>
+      <p class="text-lg sm:text-2xl text-white opacity-80 mb-8 animate__animated animate__fadeIn animate__delay-2s">Frontend Developer | Mobile App Developer | Tech Enthusiast</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="max-w-4xl mx-auto px-6 py-20" id="about">
-    <div class="bg-gradient-to-r from-blue-50 to-white rounded-2xl shadow-lg p-10">
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-20" id="about">
+    <div class="bg-gradient-to-r from-blue-50 to-white rounded-2xl shadow-lg p-6 sm:p-10">
       <div class="flex flex-col items-center text-center">
-        <img src="https://avatars.githubusercontent.com/u/99132940?v=4" alt="Profile" class="w-32 h-32 rounded-full shadow-md mb-6" />
-        <h3 class="text-3xl font-bold text-gray-800 mb-4">About Me</h3>
-        <p class="text-lg text-gray-600 leading-relaxed max-w-2xl">
-          I'm <span class="font-semibold text-blue-700">Rushikesh Vayandeshkar</span>, a passionate frontend and mobile developer. 
-          I specialize in building responsive websites and cross-platform mobile apps using <strong>React</strong>, 
-          <strong>React Native</strong>
+        <img src="https://avatars.githubusercontent.com/u/99132940?v=4" alt="Profile" class="w-24 sm:w-32 h-24 sm:h-32 rounded-full shadow-md mb-6" />
+        <h3 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">About Me</h3>
+        <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+          I'm <span class="font-semibold text-blue-700">Rushikesh Vayandeshkar</span>, a passionate frontend and mobile developer.
+          I specialize in building responsive websites and cross-platform mobile apps using <strong>React</strong>,
+          <strong>React Native</strong>.
           <br><br>
           I enjoy turning ideas into real-world products and constantly learning the latest in web and app development.
         </p>
@@ -102,58 +85,46 @@
     </div>
   </section>
 
- <!-- Projects Section -->
-<section class="bg-white py-16" id="projects">
-     <div class="max-w-6xl mx-auto px-4">
-       <h3 class="text-2xl font-semibold mb-8">Projects</h3>
-       <div class="grid gap-8 md:grid-cols-3">
-         <!-- Project Card -->
-         <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-           <h4 class="text-xl font-bold mb-2">   <a href="./Staticwebsite-main/PROJECT.HTM">MyApp</a></h4>
-           <p>A cross-platform mobile app built using React Native.</p>
-         </div>
-         <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-           <h4 class="text-xl font-bold mb-2">Portfolio Website</h4>
-           <p>This personal portfolio you're viewing, built with Tailwind.</p>
-         </div>
-         <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition">
-           <h4 class="text-xl font-bold mb-2">WeatherApp</h4>
-           <p>Live weather app using OpenWeatherMap API and React Native.</p>
-         </div>
-       </div>
-     </div>
-   </section>
-  <!-- Contact Section -->
-  <section class="max-w-4xl mx-auto px-6 py-20" id="contact">
-    <h3 class="text-3xl font-bold mb-10 text-center text-gray-800">📬 Contact Me</h3>
-  
-    <div class="bg-white shadow-2xl rounded-2xl p-10 space-y-8 transition-all duration-300 ease-in-out hover:shadow-blue-200">
-      <!-- Email -->
-      <div class="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
-        <img src="https://img.icons8.com/fluency/48/email.png" alt="Email Icon" class="w-8 h-8"/>
-        <a href="mailto:Rushikesh86051@gmail.com" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline transition-colors duration-200">
-          Rushikesh86051@gmail.com
-        </a>
-      </div>
-
-      <!-- GitHub -->
-      <div class="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
-        <img src="https://img.icons8.com/ios-glyphs/30/github.png" alt="GitHub Icon" class="w-7 h-7"/>
-        <a href="https://github.com/Nulll-cyber" target="_blank" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline transition-colors duration-200">
-          github.com/Nulll-cyber
-        </a>
-      </div>
-
-      <!-- LinkedIn -->
-      <div class="flex items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
-        <img src="https://img.icons8.com/ios-filled/30/linkedin.png" alt="LinkedIn Icon" class="w-7 h-7"/>
-        <a href="https://www.linkedin.com/in/rushikesh-vayandeshkar-/" target="_blank" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline transition-colors duration-200">
-          linkedin.com/in/rushikesh-vayandeshkar
-        </a>
+  <section class="bg-white py-16 px-4 sm:px-6" id="projects">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-2xl sm:text-3xl font-semibold mb-8">Projects</h3>
+      <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition project-card">
+          <h4 class="text-xl font-bold mb-2"><a href="./Staticwebsite-main/PROJECT.HTM">MyApp</a></h4>
+          <p>A cross-platform mobile app built using React Native.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition project-card">
+          <h4 class="text-xl font-bold mb-2">Portfolio Website</h4>
+          <p>This personal portfolio you're viewing, built with Tailwind.</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl shadow hover:shadow-lg transition project-card">
+          <h4 class="text-xl font-bold mb-2">WeatherApp</h4>
+          <p>Live weather app using OpenWeatherMap API and React Native.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-20" id="contact">
+    <h3 class="text-2xl sm:text-3xl font-bold mb-10 text-center text-gray-800">📬 Contact Me</h3>
+    <div class="bg-white shadow-2xl rounded-2xl p-6 sm:p-10 space-y-6 sm:space-y-8 transition-all duration-300 ease-in-out hover:shadow-blue-200">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
+        <img src="https://img.icons8.com/fluency/48/email.png" alt="Email Icon" class="w-8 h-8"/>
+        <a href="mailto:Rushikesh86051@gmail.com" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline">Rushikesh86051@gmail.com</a>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
+        <img src="https://img.icons8.com/ios-glyphs/30/github.png" alt="GitHub Icon" class="w-7 h-7"/>
+        <a href="https://github.com/Nulll-cyber" target="_blank" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline">github.com/Nulll-cyber</a>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 hover:scale-105 transition-transform duration-300">
+        <img src="https://img.icons8.com/ios-filled/30/linkedin.png" alt="LinkedIn Icon" class="w-7 h-7"/>
+        <a href="https://www.linkedin.com/in/rushikesh-vayandeshkar-/" target="_blank" class="text-lg font-medium text-blue-600 hover:text-blue-800 underline">linkedin.com/in/rushikesh-vayandeshkar</a>
+      </div>
+    </div>
+  </section>
+
   <footer class="bg-gray-200 py-6 text-center">
-    <p>© 2025 Rush
+    <p class="text-sm">© 2025 Rushikesh Vayandeshkar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
